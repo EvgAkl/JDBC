@@ -1,0 +1,23 @@
+#driver
+com.mysql.jdbc.Driver
+
+#urlForCreateOrDelete
+jdbc:mysql://localhost:3306
+
+#urlForUse
+jdbc:mysql://localhost:3306/
+
+#user
+root
+
+#password
+1111
+
+#sqlForCreateDatabase
+CREATE DATABASE DB2
+
+#sqlForDeleteDatabase
+--
+
+#sqlForSelect
+--
