@@ -3,14 +3,14 @@ package completeProgram;
 import java.io.*;
 import java.sql.*;
 
-public class CreateDatabase implements iConnect{
+public class DropDatabase implements iConnect{
 	// Declaration variables
 	private String driver, url, user, password;
 	private String sql;
 	private Connection conn = null;
 	private Statement stmt = null;
 	// Declaration constructions
-	CreateDatabase(){
+	DropDatabase(){
 		try (BufferedReader objRead = new BufferedReader(new FileReader("source.txt"))) {
 			int character;
 			String currentTopic;
@@ -34,8 +34,8 @@ public class CreateDatabase implements iConnect{
 						password = objRead.readLine();
 						System.out.println("password: " + password);
 					} // end if 5					
-					if (currentTopic.equals("nameDatabaseForCreate")){
-						sql = "CREATE DATABASE " + objRead.readLine() ;
+					if (currentTopic.equals("nameDatabaseForDrop")){
+						sql = "DROP DATABASE " + objRead.readLine() ;
 						System.out.println("sql: " + sql);
 					} // end if 6
 				} // end if 1
@@ -70,7 +70,7 @@ public class CreateDatabase implements iConnect{
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
 			
-			System.out.println("Database create successfully");
+			System.out.println("Database drop successfully");
 		} // end try
 		catch (SQLException e4) { e4.printStackTrace(); }
 		finally { closeConnection(); }
