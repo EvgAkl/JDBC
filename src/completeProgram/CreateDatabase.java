@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class CreateDatabase implements iConnect{
 	// Declaration variables
-	private String driver, url, user, password;
+	private String driver, url, user, password = "1111";
 	private String sql;
 	private Connection conn = null;
 	private Statement stmt = null;
@@ -30,14 +30,10 @@ public class CreateDatabase implements iConnect{
 						user = objRead.readLine();
 						System.out.println("user: " + user);
 					} // end if 4
-					if (currentTopic.equals("password")){
-						password = objRead.readLine();
-						System.out.println("password: " + password);
-					} // end if 5					
-					if (currentTopic.equals("nameDatabaseForCreate")){
-						sql = "CREATE DATABASE " + objRead.readLine() ;
+					if (currentTopic.equals("sqlForCreateDatabase")){
+						sql = objRead.readLine();
 						System.out.println("sql: " + sql);
-					} // end if 6
+					}
 				} // end if 1
 			} while (character != -1);
 		} // end try
