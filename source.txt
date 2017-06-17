@@ -13,11 +13,11 @@ root
 #password
 1111
 
-#nameDatabaseForCreate
-DB10
+#sqlForCreateDatabase
+CREATE DATABASE DB2
 
-#nameDatabaseForDrop
-DB6
+#sqlForDeleteDatabase
+--
 
 #sqlForSelect
 --
