@@ -5,14 +5,14 @@ import java.sql.*;
 
 public abstract class ActionWithDatabase{
 	// Declaration variables
-	protected String sourceSQL, additionalSQL; 
+	protected String sourceSQL, additionalSQL, sourseURL; 
 	protected String driver, url, user, password;
 	protected String sql, info;
 	protected final int GENERAL_DATABASE = 1, TARGET_DATABASE = 2;
 	protected int actualDatabase;
 	protected Connection conn = null;
 	protected Statement stmt = null;
-	// Declaration constructions
+	// Declaration constructors
 	public ActionWithDatabase(){
 		int character;
 		String currentTopic;
@@ -26,7 +26,7 @@ public abstract class ActionWithDatabase{
 						driver = objRead.readLine();
 						System.out.println("driver: " + driver);
 					} // end if 1_1
-					if (currentTopic.equals("urlForCreateOrDelete")){
+					if (currentTopic.equals(sourseURL)){
 						url = objRead.readLine();
 						System.out.println("url: " + url);
 					} // end if 1_2
@@ -44,6 +44,7 @@ public abstract class ActionWithDatabase{
 							System.out.println("sql: " + sql);
 						} // end if 1_4_1
 						else if (actualDatabase == TARGET_DATABASE){
+							sql = "";
 							do{
 								info = objRead.readLine();
 								if (info != null) { sql += info; }

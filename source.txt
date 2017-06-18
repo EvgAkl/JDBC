@@ -5,7 +5,7 @@ com.mysql.jdbc.Driver
 jdbc:mysql://localhost:3306
 
 #urlForUse
-jdbc:mysql://localhost:3306/
+jdbc:mysql://localhost:3306/testsql
 
 #user
 root
@@ -19,5 +19,26 @@ DB3
 #nameDatabaseForDrop
 DB2
 
-#sqlForSelect
---
+#sqlForCreateTable
+CREATE TABLE WOW
+(id INTEGER not NULL,
+first VARCHAR(50),
+last VARCHAR(50),
+age INTEGER, 
+PRIMARY KEY(id))
+
+#sqlForDropTable
+DROP TABLE registration
+
+#sqlForSelectQuery
+SELECT prod_id, prod_name
+FROM products
+WHERE vend_id = 'DLL01';
+
+#columnNameForSelectQuery
+prod_id
+prod_name
+
+#dataTypeColumnForSelectQuery
+String
+String

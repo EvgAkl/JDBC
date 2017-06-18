@@ -12,6 +12,7 @@ public class DropDatabase extends ActionWithDatabase{
 	// Declaration methods
 	protected void initializationSQL(){
 		sourceSQL = "nameDatabaseForDrop";
+		sourseURL = "urlForCreateOrDelete";
 		additionalSQL = "DROP DATABASE ";
 		actualDatabase = GENERAL_DATABASE;
 	} // end initializationSQL
@@ -24,7 +25,7 @@ public class DropDatabase extends ActionWithDatabase{
 			System.out.println("Database drop successfully");
 		} // end try
 		catch (SQLException e4) { 
-			System.out.println("Error, such a database doesn't exist! ");
+			System.out.println("Syntax error or such a database doesn't exist! ");
 		}
 		finally { closeConnection(); }
 	} // end run()

@@ -10,12 +10,16 @@ public class Demo {
 		int userChoseInt = 0;
 		// TODO Auto-generated method stub
 		ActionWithDatabase actualObj = null;
-		CreateDatabase objCreate = new CreateDatabase();
-		DropDatabase objDrop = new DropDatabase();
+		CreateDatabase objCreateDB = new CreateDatabase();
+		DropDatabase objDropDB = new DropDatabase();
+		CreateTable objCreateT = new CreateTable();
+		DropTable objDropT = new DropTable();
 		
 		System.out.println("You available following actions: ");
-		System.out.println(" 1 - create table");
-		System.out.println(" 2 - drop  table");
+		System.out.println(" 1 - create database");
+		System.out.println(" 2 - drop  database");
+		System.out.println(" 3 - create table");
+		System.out.println(" 4 - drop table");
 		System.out.println("Enter the 'q' for the end.");
 		System.out.println();
 		
@@ -35,11 +39,16 @@ public class Demo {
 				}
 				switch (userChoseInt){
 				case 1:
-					actualObj = objCreate;
+					actualObj = objCreateDB;
 					break;
 				case 2: 
-					actualObj = objDrop;
+					actualObj = objDropDB;
 					break;
+				case 3:
+					actualObj = objCreateT;
+					break;
+				case 4:
+					actualObj = objDropT;
 				} // end switch
 				actualObj.run();
 			} // end endless for	
