@@ -1,69 +1,20 @@
 package completeProgram;
 
-import java.io.*;
 import java.sql.*;
 
-public class DropDatabase implements iConnect{
+public class DropDatabase extends ActionWithDatabase{
 	// Declaration variables
-	private String driver, url, user, password;
-	private String sql;
-	private Connection conn = null;
-	private Statement stmt = null;
+	// --
 	// Declaration constructions
-	DropDatabase(){
-		try (BufferedReader objRead = new BufferedReader(new FileReader("source.txt"))) {
-			int character;
-			String currentTopic;
-			do{
-				character = objRead.read();
-				if (character == '#'){
-					currentTopic = objRead.readLine();
-					if (currentTopic.equals("driver")){
-						driver = objRead.readLine();
-						System.out.println("driver: " + driver);
-					} // end if 2
-					if (currentTopic.equals("urlForCreateOrDelete")){
-						url = objRead.readLine();
-						System.out.println("url: " + url);
-					} // end if 3
-					if (currentTopic.equals("user")) {
-						user = objRead.readLine();
-						System.out.println("user: " + user);
-					} // end if 4
-					if (currentTopic.equals("password")){
-						password = objRead.readLine();
-						System.out.println("password: " + password);
-					} // end if 5					
-					if (currentTopic.equals("nameDatabaseForDrop")){
-						sql = "DROP DATABASE " + objRead.readLine() ;
-						System.out.println("sql: " + sql);
-					} // end if 6
-				} // end if 1
-			} while (character != -1);
-		} // end try
-		catch (FileNotFoundException e1) { System.out.println("File not found!"); }
-		catch (IOException e2) { e2.printStackTrace(); }
+	public DropDatabase(){
+		super();
 	}
 	// Declaration methods
-	public void openCunnection(){		
-		try{
-			Class.forName(driver);
-			conn = DriverManager.getConnection(url, user, password);
-		} // end try
-		catch (ClassNotFoundException | SQLException e1 ){
-			e1.printStackTrace();
-		}
-	} // end openConnection()
-	public void closeConnection(){
-		try{
-			if (stmt != null) { stmt.close(); } 
-		} // end try
-		catch (SQLException e2) { /* to do nothing */ }
-		try {
-			if (conn != null) { conn.close(); }
-		} // end try
-		catch (SQLException e3) { e3.printStackTrace(); }
-	} // end closeConnection()
+	protected void initializationSQL(){
+		sourceSQL = "nameDatabaseForDrop";
+		additionalSQL = "DROP DATABASE ";
+		actualDatabase = GENERAL_DATABASE;
+	} // end initializationSQL
 	public void run(){
 		openCunnection();
 		try{		
@@ -72,7 +23,9 @@ public class DropDatabase implements iConnect{
 			
 			System.out.println("Database drop successfully");
 		} // end try
-		catch (SQLException e4) { e4.printStackTrace(); }
+		catch (SQLException e4) { 
+			System.out.println("Error, such a database doesn't exist! ");
+		}
 		finally { closeConnection(); }
 	} // end run()
 } // end class

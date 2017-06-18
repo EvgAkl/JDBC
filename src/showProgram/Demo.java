@@ -1,6 +1,7 @@
-package completeProgram;
+package showProgram;
 
 import java.io.*;
+import completeProgram.*;
 
 public class Demo {
 
@@ -8,7 +9,7 @@ public class Demo {
 		String userChoseString = null; 
 		int userChoseInt = 0;
 		// TODO Auto-generated method stub
-		iConnect actualObj = null;
+		ActionWithDatabase actualObj = null;
 		CreateDatabase objCreate = new CreateDatabase();
 		DropDatabase objDrop = new DropDatabase();
 		
@@ -52,5 +53,6 @@ public class Demo {
 		catch(NullPointerException e2){
 			System.out.println("You entered idvalid value! ");
 		}
+
 	} // end main()
 } // end main class

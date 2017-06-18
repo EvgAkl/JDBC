@@ -14,10 +14,10 @@ root
 1111
 
 #nameDatabaseForCreate
-DB10
+DB3
 
 #nameDatabaseForDrop
-DB6
+DB2
 
 #sqlForSelect
 --
