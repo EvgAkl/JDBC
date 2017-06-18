@@ -7,7 +7,7 @@ public abstract class ActionWithDatabase{
 	// Declaration variables
 	protected String sourceSQL, additionalSQL, sourseURL; 
 	protected String driver, url, user, password;
-	protected String sql, info;
+	protected String sql;
 	protected final int GENERAL_DATABASE = 1, TARGET_DATABASE = 2;
 	protected int actualDatabase;
 	protected Connection conn = null;
@@ -15,7 +15,7 @@ public abstract class ActionWithDatabase{
 	// Declaration constructors
 	public ActionWithDatabase(){
 		int character;
-		String currentTopic;
+		String currentTopic, info;
 		initializationSQL();
 		try (BufferedReader objRead = new BufferedReader(new FileReader("source.txt"))) {
 			do{
@@ -24,19 +24,15 @@ public abstract class ActionWithDatabase{
 					currentTopic = objRead.readLine();
 					if (currentTopic.equals("driver")){
 						driver = objRead.readLine();
-						System.out.println("driver: " + driver);
 					} // end if 1_1
 					if (currentTopic.equals(sourseURL)){
 						url = objRead.readLine();
-						System.out.println("url: " + url);
 					} // end if 1_2
 					if (currentTopic.equals("user")) {
 						user = objRead.readLine();
-						System.out.println("user: " + user);
 					} // end if 1_3
 					if (currentTopic.equals("password")){
 						password = objRead.readLine();
-						System.out.println("password: " + password);
 					} // end if 1_4					
 					if (currentTopic.equals(sourceSQL)){
 						if (actualDatabase == GENERAL_DATABASE){

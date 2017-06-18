@@ -31,17 +31,26 @@ PRIMARY KEY(id))
 DROP TABLE registration
 
 #sqlForSelectQuery
-SELECT prod_id, prod_name
-FROM products
-WHERE vend_id = 'DLL01';
+SELECT prod_name, vend_name, prod_price, quantity 
+FROM products 
+inner join vendors 
+on products.vend_id  = vendors.vend_id 
+inner join orderitems 
+on products.prod_id = orderitems.prod_id 
+WHERE order_num = 20007 
+ORDER BY prod_name;
 
-#columnNameForSelectQuery
-prod_id
+#columnsNameForSelectQuery
 prod_name
+vend_name
+prod_price
+quantity
 
-#dataTypeColumnForSelectQuery
+#dataTypeColumnsForSelectQuery
 String
 String
+Double
+Int
 
 #sqlForInsertRecord
 INSERT INTO registration 
@@ -57,22 +66,6 @@ WHERE id IN (100, 101);
 #sqlForDeleteRecord
 DELETE FROM registration 
 WHERE id = 100;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
