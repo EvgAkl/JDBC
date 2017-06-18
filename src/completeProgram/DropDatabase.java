@@ -1,6 +1,6 @@
 package completeProgram;
 
-import java.sql.*;
+import java.sql.SQLException;
 
 public class DropDatabase extends ActionWithDatabase{
 	// Declaration variables

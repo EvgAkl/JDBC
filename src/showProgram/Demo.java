@@ -14,12 +14,19 @@ public class Demo {
 		DropDatabase objDropDB = new DropDatabase();
 		CreateTable objCreateT = new CreateTable();
 		DropTable objDropT = new DropTable();
+		InsertRecord objInsertR = new InsertRecord();
+		UpdateRecord objUpdateR = new UpdateRecord();
+		DeleteRecord objDeleteR = new DeleteRecord();
 		
 		System.out.println("You available following actions: ");
 		System.out.println(" 1 - create database");
 		System.out.println(" 2 - drop  database");
 		System.out.println(" 3 - create table");
 		System.out.println(" 4 - drop table");
+		
+		System.out.println(" 6 - insert record");
+		System.out.println(" 7 - update record");
+		System.out.println(" 8 - delete record");
 		System.out.println("Enter the 'q' for the end.");
 		System.out.println();
 		
@@ -49,6 +56,18 @@ public class Demo {
 					break;
 				case 4:
 					actualObj = objDropT;
+				case 5:
+					
+					break;
+				case 6:
+					actualObj = objInsertR;
+					break;
+				case 7:
+					actualObj = objUpdateR;
+					break;
+				case 8:
+					actualObj = objDeleteR;
+					break;					
 				} // end switch
 				actualObj.run();
 			} // end endless for	
@@ -62,6 +81,5 @@ public class Demo {
 		catch(NullPointerException e2){
 			System.out.println("You entered idvalid value! ");
 		}
-
 	} // end main()
 } // end main class

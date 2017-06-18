@@ -20,7 +20,7 @@ DB3
 DB2
 
 #sqlForCreateTable
-CREATE TABLE WOW
+CREATE TABLE registration
 (id INTEGER not NULL,
 first VARCHAR(50),
 last VARCHAR(50),
@@ -42,3 +42,44 @@ prod_name
 #dataTypeColumnForSelectQuery
 String
 String
+
+#sqlForInsertRecord
+INSERT INTO registration 
+(id, first, last, age) 
+VALUES 
+(100, 'Zara', 'Ali', 18); 
+
+#sqlForUpdateRecord
+UPDATE registration 
+SET age = 30 
+WHERE id IN (100, 101); 
+
+#sqlForDeleteRecord
+DELETE FROM registration 
+WHERE id = 100;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
